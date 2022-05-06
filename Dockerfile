@@ -11,4 +11,6 @@ WORKDIR /usr/src/app
 
 EXPOSE 3000
 
-#CMD ["node","index.js"]
+ENTRYPOINT [ "npm", "install" ]
+
+CMD ["node","index.js"]

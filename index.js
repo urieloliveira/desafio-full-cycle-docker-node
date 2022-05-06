@@ -9,11 +9,14 @@ const config = {
 };
 const mysql = require("mysql");
 const connection = mysql.createConnection(config);
-const sql = `INSERT INTO people(name) values('Uriel');`;
+const createTable =
+  "CREATE TABLE people(id int not null auto_increment, name VARCHAR(255), primary key(id))";
+const insertPerson = `INSERT INTO people(name) values('Uriel');`;
 const select = `SELECT * FROM people`;
 let list = "";
 
-connection.query(sql);
+connection.query(createTable);
+connection.query(insertPerson);
 connection.query(select, (err, results) => {
   if (err) throw err;
   list = `<ul>${results
