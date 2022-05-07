@@ -6,7 +6,7 @@ services:
     build:
       context: .
     container_name: app
-    entrypoint: node index.js
+    command: npm i && node index.js
     networks: 
       - node-network
     volumes: 
@@ -24,6 +24,8 @@ services:
     container_name: db
     restart: always
     tty: true
+    volumes: 
+      - ./mysql:/var/lib/mysql
     environment: 
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
