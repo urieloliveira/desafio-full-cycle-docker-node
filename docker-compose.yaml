@@ -6,11 +6,12 @@ services:
     build:
       context: .
     container_name: app
-    command: npm i && node index.js
+    command: node index.js
     networks: 
       - node-network
     volumes: 
-      - ./:/usr/src/app
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
     tty: true
     ports: 
       - "3000:3000"
